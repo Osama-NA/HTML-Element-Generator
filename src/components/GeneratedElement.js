@@ -9,7 +9,8 @@ export const GeneratedElement = () => {
 
   //Copying to clipboard the text in the div with the ref attribute textField
   const CopyText = () => {
-    const text = textField.current.innerHTML;
+    let text = textField.current.innerHTML;
+    text = text.replaceAll('&lt;', '<').replaceAll('&gt;', '>');
     navigator.clipboard.writeText(text);
   };
 

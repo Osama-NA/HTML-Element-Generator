@@ -89,40 +89,32 @@ export const CreateElement = () => {
 
   if (next === "") {
     return (
-      <div className="create-element">
-        <h2>Create Element</h2>
-        <div className="elements">
-          <InnerText onTextChange={onTextChange} text={text} isLink={isLink}/>
-          <button onClick={setElementText}>Next</button>
-        </div>
-      </div>
+      <InnerText 
+        onTextChange={onTextChange} 
+        text={text} isLink={isLink} 
+        setElementText={setElementText} 
+      />
     );
   } else if (next === "Add Link") {
     return (
-      <div className="create-element">
-        <h2>Create Element</h2>
-        <div className="elements">
-          <AddLink onTextChange={onTextChange} text={text} />
-          <button onClick={setElementLink}>Next</button>
-        </div>
-      </div>
+      <AddLink 
+        onTextChange={onTextChange} 
+        text={text} 
+        setElementLink={setElementLink} 
+      />
     );
   } else if (next === "Add Style") {
     return (
-      <div className="create-element">
-        <h2>Create Element</h2>
-        <div className="elements">
-          <AddStyle 
-          normal={normal} 
-          bold={bold} 
-          italic={italic} 
-          strikethrough={strikethrough} 
-          underline={underline} 
-          subscript={subscript} 
-          superscript={superscript} />
-          <button onClick={setElementStyle}>Next</button>
-        </div>
-      </div>
+      <AddStyle
+        normal={normal}
+        bold={bold}
+        italic={italic}
+        strikethrough={strikethrough}
+        underline={underline}
+        subscript={subscript}
+        superscript={superscript}
+        setElementStyle={setElementStyle} 
+      />
     );
   }
 };
