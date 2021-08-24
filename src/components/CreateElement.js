@@ -78,7 +78,10 @@ export const CreateElement = () => {
       setFinalElement("Your Generated HTML Element Will Appear Here");
     }
 
-    setNext(""); //To reset steps
+    setElement("");
+    setText("")
+    setLink("");
+    setNext(""); //Reset steps
   }, [styledElement]);
 
   //Rendered first
