@@ -61,7 +61,7 @@ export const CreateElement = () => {
       newElement = `<sub>${text}</sub>`;
     } else if (superscript.current.checked) {
       newElement = `<sup>${text}</sup>`;
-    } else{
+    } else {
       newElement = `<p>${text}</p>`;
     }
 
@@ -87,34 +87,10 @@ export const CreateElement = () => {
     setNext(""); //Reset steps
   }, [styledElement]);
 
-  if (next === "") {
-    return (
-      <InnerText 
-        onTextChange={onTextChange} 
-        text={text} isLink={isLink} 
-        setElementText={setElementText} 
-      />
-    );
-  } else if (next === "Add Link") {
-    return (
-      <AddLink 
-        onTextChange={onTextChange} 
-        text={text} 
-        setElementLink={setElementLink} 
-      />
-    );
-  } else if (next === "Add Style") {
-    return (
-      <AddStyle
-        normal={normal}
-        bold={bold}
-        italic={italic}
-        strikethrough={strikethrough}
-        underline={underline}
-        subscript={subscript}
-        superscript={superscript}
-        setElementStyle={setElementStyle} 
-      />
-    );
-  }
+  return (
+    next === "" ? <InnerText onTextChange={onTextChange} text={text} isLink={isLink} setElementText={setElementText} /> :
+      next === "Add Link" ? <AddLink onTextChange={onTextChange} text={text} setElementLink={setElementLink} /> :
+        <AddStyle normal={normal} bold={bold} italic={italic} strikethrough={strikethrough} underline={underline} 
+          subscript={subscript} superscript={superscript} setElementStyle={setElementStyle} />
+  );
 };
